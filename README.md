@@ -1,14 +1,7 @@
-<p align="center">
-  <img src="https://cdn.rawgit.com/myntra/pipeline/master/images/pipes.png" height="150" width="150" />
-  <h3 align="center">Pipeline</h3>
-  <p align="center">A package to build multi-staged concurrent workflows with a centralized logging output. </p>
-  <p align="center">
-    <a href="https://travis-ci.org/myntra/pipeline"><img src="https://travis-ci.org/myntra/pipeline.svg?branch=master"></a>
-    <a href="https://godoc.org/gopkg.in/myntra/pipeline.v1"><img src="https://godoc.org/gopkg.in/myntra/pipeline.v1?status.svg"></a>
-    <a href="https://goreportcard.com/report/gopkg.in/myntra/pipeline.v1"><img src="https://goreportcard.com/badge/gopkg.in/myntra/pipeline.v1"></a>
-  </p>
-</p>
+# Pipeline
+## A package to build multi-staged concurrent workflows with a centralized logging output.
 
+#### This is a hard fork of [Myntra Pipeline](https://github.com/myntra/pipeline) with a 3 Clause BSD License
 ---
 
 The package could be used to define and execute CI/CD tasks(either sequential or concurrent). A tool with similar goals
@@ -19,7 +12,7 @@ It's tiny by design and is valuable when used as a glue rather than a container.
 
 #### go get
 ```
-$ go get gopkg.in/myntra/pipeline.v1
+$ go get github.com/go-pipeline/pipeline
 ```
 
 #### Concepts
@@ -27,7 +20,7 @@ $ go get gopkg.in/myntra/pipeline.v1
  The package has three building blocks to create workflows : Pipeline, Stage and Step . A pipeline is a collection of stages and a stage is a
  collection of steps. A stage can have either concurrent or sequential steps, while stages are always sequential.
 
-![Pipeline](https://cdn.rawgit.com/myntra/pipeline/master/images/pipeline.png)
+![Pipeline](https://github.com/go-pipeline/pipeline/blob/master/images/pipeline.png?raw=true)
 
 The step block is where the actual work is done. Stage and pipeline act as flow governors.
 
@@ -67,9 +60,9 @@ The `pipeline.StepContext` type provides a `Status` method which can be used to 
 
 #### Usage
 
-The api [NewStage(name string, concurrent bool, disableStrictMode bool)](https://godoc.org/github.com/myntra/pipeline#NewStage) is used to stage work either sequentially or concurrently. In terms of the pipeline package, a unit of work is an interface: [Step](https://godoc.org/github.com/myntra/pipeline#Step). 
+The api [NewStage(name string, concurrent bool, disableStrictMode bool)](https://godoc.org/github.com/go-pipeline/pipeline#NewStage) is used to stage work either sequentially or concurrently. In terms of the pipeline package, a unit of work is an interface: [Step](https://godoc.org/github.com/go-pipeline/pipeline#Step). 
 
-The following example shows a sequential stage. For a more complex example, please see: [examples/advanced.go](https://github.com/myntra/pipeline/blob/master/examples/advanced.go)
+The following example shows a sequential stage. For a more complex example, please see: [examples/advanced.go](https://github.com/go-pipeline/pipeline/blob/master/examples/advanced.go)
 
 ```go
 package main
@@ -78,7 +71,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/myntra/pipeline"
+	"github.com/go-pipeline/pipeline"
 )
 
 type work struct {
@@ -169,4 +162,4 @@ Check `examples` directory for more.
 
 Output of the above example:
 
-![Example Output](https://cdn.rawgit.com/myntra/pipeline/master/images/simple_pipe_out.png)
+![Example Output](https://github.com/go-pipeline/pipeline/blob/master/images/simple_pipe_out.png?raw=true)
