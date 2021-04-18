@@ -9,7 +9,7 @@ import (
 
 	"io/ioutil"
 
-	"github.com/myntra/pipeline"
+	"github.com/go-pipeline/pipeline"
 )
 
 type downloadStep struct {
